@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  jenkins-node:
+    image: jenkins/jenkins:lts
+    container_name: jenkins-node
+    privileged: true
+  ports:
+    - 8088:8088
+    - 50000:50000
+  volumes:
+    - ~/.jenkins_home:/var/jenkins_home
+    - /usr/bin/docker:/usr/bin/docker
+    - /var/run/docker.sock:/var/run/docker.sock:ro
